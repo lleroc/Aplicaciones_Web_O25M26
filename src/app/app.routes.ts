@@ -5,7 +5,7 @@ import { NuevoCliente } from './cliente/nuevo-cliente/nuevo-cliente';
 
 export const routes: Routes = [
     {
-        path:"**",
+        path:"",
         component:Cliente,
         pathMatch:"full"
     },
@@ -16,5 +16,10 @@ export const routes: Routes = [
     {
         path:"nuevoCliente",
         component:NuevoCliente
+    },
+    {
+        path:"editarCliente/:id",
+        component:NuevoCliente
     }
+
 ];

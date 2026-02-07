@@ -9,20 +9,39 @@
             <tr>
                 <th>#</th>
                 <th>Nombre</th>
-                <th>Apellido</th>
                 <th>Direccion</th>
                 <th>Telefono</th>
+                <th>Email</th>
             </tr>
         </thead>
         <tbody>
+           @for (cliente of listaclientes(); track cliente.idcliente ?? cliente.id ?? $index; let contador = $index) {
             <tr>
-                <td>1</td>
-                <td>Luis</td>
-                <td>Llerena</td>
-                <td>Ambato</td>
-                <td>098765432</td>
+                <td>{{ (contador + 1) }}</td>
+                <td>{{ cliente.nombres }}</td>
+                <td>{{ cliente.direccion}}</td>
+                <td>{{ cliente.telefono}}</td>
+                <td>{{ cliente.email }}</td>
+                <td>
+                    <button class="btn btn-outline-warning" [routerLink]="['/editarCliente',cliente.id]">Editar</button>
+                    <button class="btn btn-outline-danger" (click)="eliminar(cliente.id)">Eliminar</button>
+                </td>
             </tr>
+           }
         </tbody>
+       <!-- <tfoot>
+            <tr *ngfor="let cl of lislistaclientes; let i = $index">
+                <td>{{ (i + 1) }}</td>
+                <td>{{ cl.nombres }}</td>
+                 <td>{{ cl.direccion}}</td>
+                <td>{{ cl.telefono}}</td>
+                <td>{{ cl.email }}</td>
+                <td>
+                    <button class="btn btn-outline-warning" >Editar</button>
+                    <button class="btn btn-outline-danger">Eliminar</button>
+                </td>
+            </tr>
+        </tfoot>-->
     </table>
 
 
