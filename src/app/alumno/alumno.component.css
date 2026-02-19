@@ -1,0 +1,84 @@
+/* Estilos normales (pantalla) */
+.toolbar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.print-area {
+  background: white;
+}
+
+/* Tabla */
+.print-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.print-table th,
+.print-table td {
+  border: 1px solid #333;
+  padding: 6px 8px;
+  vertical-align: top;
+}
+
+.print-table thead th {
+  background: #eee;
+}
+
+.center { text-align: center; }
+.nowrap { white-space: nowrap; }
+
+/* ============ SOLO IMPRESIÓN ============ */
+@media print {
+  /* Config de página (algunos navegadores respetan márgenes) */
+  @page {
+    size: A4;
+    margin: 12mm;
+  }
+
+  /* Oculta lo que no quieres imprimir */
+  .no-print {
+    display: none !important;
+  }
+
+  /* Imprime SOLO el área marcada */
+  body * {
+    visibility: hidden;
+  }
+
+  .print-area,
+  .print-area * {
+    visibility: visible;
+  }
+
+  .print-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+
+  /* Evita que se corten filas entre páginas */
+  table { page-break-inside: auto; }
+  tr { page-break-inside: avoid; page-break-after: auto; }
+  thead { display: table-header-group; } /* repite encabezado en cada página */
+  tfoot { display: table-footer-group; }
+
+  /* Ajuste para imprimir más compacto */
+  .print-table {
+    font-size: 10px;
+  }
+
+  .print-table th,
+  .print-table td {
+    padding: 4px 6px;
+  }
+
+  /* Si el navegador intenta poner colores, esto ayuda */
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}

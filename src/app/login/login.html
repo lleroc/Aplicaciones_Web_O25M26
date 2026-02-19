@@ -1,0 +1,26 @@
+
+<h2>Login</h2>
+
+<form [formGroup]="form" (ngSubmit)="grabar()">
+  <div>
+    <label>Email</label>
+    <input type="email" formControlName="email" />
+    <small *ngIf="form.get('email')?.touched && form.get('email')?.invalid">
+      Email inválido
+    </small>
+  </div>
+
+  <div>
+    <label>Contraseña</label>
+    <input type="password" formControlName="contrasenia" />
+    <small *ngIf="form.get('contrasenia')?.touched && form.get('contrasenia')?.invalid">
+      La contraseña es requerida
+    </small>
+  </div>
+
+  <p *ngIf="errorMsg" style="color:red">{{ errorMsg }}</p>
+
+  <button type="submit" [disabled]="loading">
+    {{ loading ? 'Ingresando...' : 'Ingresar' }}
+  </button>
+</form>

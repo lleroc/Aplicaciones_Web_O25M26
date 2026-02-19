@@ -3,6 +3,8 @@ import { AlumnoInterface } from '../interfaces/alumno.interface';
 import { AlumnoService } from '../services/alumno.service';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { PdfmakeService } from '../services/pdfmake.service';
+
 
 @Component({
   selector: 'app-alumno.component',
@@ -13,7 +15,7 @@ import { FormsModule } from '@angular/forms';
 export class AlumnoComponent implements OnInit {
   listaalumnos = signal<AlumnoInterface[]>([])
 
-  constructor(private alumnoService:AlumnoService) {}
+  constructor(private alumnoService:AlumnoService, private pdfService:PdfmakeService) {}
 
   ngOnInit(): void {
     this.cargalista()
@@ -26,4 +28,18 @@ export class AlumnoComponent implements OnInit {
       }
     )
   }
+   
+  exportarPdf(){
+    const data = this.listaalumnos();
+    if(!data.length){
+      alert("No existes registros")
+      return
+    }
+    this.pdfService.exportarAlumnos(data)
+  }
+
+  imprimir(){
+    window.print()
+  }
+ 
 }

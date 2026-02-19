@@ -1,7 +1,7 @@
 
-<header class="site-header">
+<header class="site-header no-print">
   <nav class="navbar" aria-label="Navegación principal">
-    <a class="brand" href="#">MiSitio</a>
+    <a class="brand no-print" href="#">MiSitio</a>
 
     <!-- Toggle (solo CSS) -->
     <input class="nav-toggle" type="checkbox" id="nav-toggle" />
@@ -10,11 +10,11 @@
     </label>
 
     <ul class="nav-links">
-      <li><a class="active" href="#">Inicio</a></li>
-      <li><a [routerLink]='["/cliente"]'>Clientes</a></li>
-      <li><a [routerLink]="['/nuevoCliente']">Nuevo Cliente</a></li>
-      <li><a [routerLink]="['/alumnos']">Alumnos</a></li>
-      <li><a class="btn" href="#">Contacto</a></li>
+      <li><a class="active no-print" href="#">Inicio</a></li>
+      <li><a class="no-print" [routerLink]='["/cliente"]'>Clientes</a></li>
+      <li><a class="no-print" [routerLink]="['/nuevoCliente']">Nuevo Cliente</a></li>
+      <li><a class="no-print" [routerLink]="['/alumnos']">Alumnos</a></li>
+      <li><a class="btn no-print" href="#">Contacto</a></li>
     </ul>
   </nav>
 </header>

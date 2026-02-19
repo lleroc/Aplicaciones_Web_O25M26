@@ -74,6 +74,7 @@ body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial
   color: #07101f;
 }
 
+
 /* Toggle: oculto en desktop */
 .nav-toggle { display: none; }
 .nav-toggle-label { display: none; }
@@ -146,5 +147,16 @@ body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial
   .nav-toggle:checked + .nav-toggle-label span::after {
     top: 0;
     transform: rotate(-45deg);
+  }
+}
+
+@media print {
+ 
+  .no-print {
+    display: none !important;
+  }
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 }

@@ -1,6 +1,9 @@
 <h1>Lista de Alumnos</h1>
-<button class="btn btn-outline-primary" type="button" routerLink="/nuevoalumno">Nuevo Alumno</button>
-<div class=""> 
+<button class="btn btn-outline-primary no-print" type="button" routerLink="/nuevoalumno">Nuevo Alumno</button>
+<button (click)="exportarPdf()" class="btn btn-outline-success no-print">Exportar PDF</button>
+<button class="btn btn-danger no-print" (click)="imprimir()">Imprimir con Windows.Print</button>
+<div id="imprimir"> 
+
     <table class="table tbale-responsive table-bordered table-striped">
         <thead>
             <tr>
@@ -19,9 +22,9 @@
                 <td>{{ alumno.direccion}}</td>
                 <td>{{ alumno.telefono}}</td>
                 <td>{{ alumno.email }}</td>
-                <td>
-                    <button class="btn btn-outline-warning" [routerLink]="['/editaralumno', alumno.id]">Editar</button>
-                    <button class="btn btn-outline-danger" >Eliminar</button>
+                <td class="no-print">
+                    <button class="btn btn-outline-warning no-print" [routerLink]="['/editaralumno', alumno.id]">Editar</button>
+                    <button class="btn btn-outline-danger no-print" >Eliminar</button>
                 </td>
             </tr>
            }
